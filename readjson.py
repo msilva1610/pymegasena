@@ -8,7 +8,7 @@ with open('megasena.json') as json_file:
     concursos = {}
     r = []
     for item in range(len(data)):
-        concursocod = data[item]['Concurso']*1
+        concursocod = data[item]['Concurso']
         dez01 = (data[item]['Dezena01'])
         dez02 = (data[item]['Dezena02'])
         dez03 = (data[item]['Dezena03'])
@@ -18,10 +18,5 @@ with open('megasena.json') as json_file:
         if concursocod <> '':
             dr = [int(dez01),int(dez02),int(dez03),int(dez04),int(dez05),int(dez06)]
             dr.sort()
-            #d = {int(concursocod):dr}
             d = {int(concursocod):dr}
-            #concursos.append(d)
             concursos.update(d)
-            #print('d: {} '.format(d))
-    print(len(concursos))
-
