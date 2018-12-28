@@ -15,11 +15,11 @@ todos = [1,2,3,4,5,11,12,13,14,15,21,22,23,24,25,6,7,8,9,10,16,17,18,19,20,26,27
 #Os10MaisSorteados = todos
 #Os10MaisAtrasados = todos
 
-numapostas = 60000000
+numapostas = 30
 dezenas = 7
 apostas = []
 concursos = {}
-corteiguais = 3
+corteiguais = 4
 
 
 def CarregaConcursos():
@@ -106,7 +106,7 @@ def principal():
     Validado = False
     CarregaConcursos()
     for i in range(1, numapostas+1):
-        #time.sleep(5)
+        time.sleep(7)
         apostar()
         apostas.sort()
         # print('minhas apostas {}: {}'.format(i, apostas))
