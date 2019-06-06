@@ -19,11 +19,9 @@ apostas['apostas'] = []
 multiplos = {}
 multiplos['de'] = []
 
-# volante = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60]
-
-#volante = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60]
-volante = [1,2,3,4,5,6]
-c = list(itertools.combinations(volante, 3))
+volante = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60]
+# volante = [1,2,3,4,5,6]
+c = list(itertools.combinations(volante, 6))
 unq = set(c)
 total_apostas = len(unq)
 impares = 0
@@ -40,7 +38,11 @@ total_quadraticos = 0
 soma_das_dezenas = 0
 soma_dos_digitos_das_dezenas = 0
 i = 0
+
+tot = 0
+
 for aposta in unq:
+
     i = i + 1
 
     for d in aposta:
@@ -91,7 +93,7 @@ for aposta in unq:
 
     # inicio: parte que calcula os multiplos
     tot_m = 0
-    for m in range(2,4):
+    for m in range(2,30):
         for d in aposta:
             if d % m == 0:
                 tot_m += 1       
@@ -117,6 +119,12 @@ for aposta in unq:
     print (str(i) + " : " + str(aposta))
     print("multiplos: " + str(multiplos['de']))
     multiplos['de'] = []
+
+    
+    if tot >= 1000:
+        break
+    else:
+        tot += 1
 
 with open ('apostas.json', 'w') as outfile:
     json.dump(apostas, outfile)
