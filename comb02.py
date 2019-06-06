@@ -20,6 +20,7 @@ total_apostas = len(unq)
 impares = 0
 pares = 0
 multiplo_de = 0
+primos = 0
 
 i = 0
 for aposta in unq:
@@ -31,6 +32,15 @@ for aposta in unq:
         else:
             pares += 1
 
+    # inicio primos
+    for d in aposta:
+        if d > 2:
+            for p in range(2,d):
+                if (d % p == 0):
+                    primos += 1
+
+    # fim primos
+
     # inicio: parte que calcula os multiplos
     tot_m = 0
     for m in range(2,4):
@@ -41,10 +51,11 @@ for aposta in unq:
         tot_m = 0
     # fim: parte que calcula os multiplos
     apostas['apostas'].append({
-        'id': i, 'dezenas': aposta, 'dez_impares':impares, 'dez_pares': pares, 'multiplos': multiplos['de']
+        'id': i, 'dezenas': aposta, 'dez_impares':impares, 'dez_pares': pares,'primos':primos,  'multiplos': multiplos['de']
     })
     impares = 0
     pares = 0
+    primos = 0
     print (str(i) + " : " + str(aposta))
     print("multiplos: " + str(multiplos['de']))
     multiplos['de'] = []
